@@ -5,17 +5,60 @@ createApp({
     return {
       apiUrl: "server.php",
       toSee: [],
-      nCity: "",
-      done: "",
+      lastID: null,
+      done: '',
+
+      newObj: {
+        id: null,
+        city: "",
+        done: "",
+      },
     };
   },
   methods: {
     getData() {
       axios.get(this.apiUrl).then((res) => {
         this.toSee = res.data;
+        this.lastID = this.toSee.length ;
+        //console.log(this.toSee);
+      })
+      .catch((err) => {
+        console.log(err);
       });
+
     },
-    //function to mark elements
+    addItem() {
+      const ncity = { ...this.newObj };
+      this.newObj = {
+        
+        city: "",
+        done: "",
+      };
+      this.lastID += 1;
+      ncity.id = this.lastID;
+
+      console.log(ncity);
+      console.log(this.toSee);
+
+      const data = new FormData();
+      data.append("id", ncity.id);
+      data.append("city", ncity.city);
+      data.append("done", ncity.done);
+      console.log(data);
+
+      axios
+        .post(this.apiUrl, data)
+        .then((res) => {
+          console.log(res.data);
+          this.toSee = res.data;
+          this.lastID = this.toSee.length + 1;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      
+    },
     ToggleToSee(id) {
       const item = this.toSee.find((el) => {
         return el.id === id;
@@ -26,52 +69,9 @@ createApp({
       }
       console.log(item);
     },
-    //a function for remove items on list
-    deleteItem(id) {
-      let i = this.toSee.findIndex((el) => el.id === id);
-      this.toSee.splice(i, 1);
-      //console.log(i)
-    },
-    //heere create a new object and push inside the new element
-    addItem() {
-      if (this.nCity.trim() === "") {
-        return;
-      }
-      const newObj = {
-        id: "null",
-        city: this.nCity,
-        done: false,
-      };
-      let nextId = 0;
-      this.toSee.forEach((el) => {
-        if (nextId < el.id) {
-          nextId = el.id;
-        }
-      });
-      newObj.id = nextId + 1;
-
-      this.toSee.push(newObj);
-      this.nCity = "";
-      console.log(this.nCity);
-      console.log(this.toSee);
-    },
   },
-  computed: {
-    toSeeNew() {
-      return this.toSee.filter((el) => {
-        if (this.done === "") {
-          return true;
-        }
-        if (this.done === "true") {
-          return el.done === true;
-        }
-        if (this.done === "false") {
-          return el.done === false;
-        }
-      });
-    },
-  },
-  mounted() {
+  computed: {},
+  created() {
     this.getData();
   },
 }).mount("#app");

@@ -36,7 +36,7 @@
         <!-- Main **** List -->
         <main class="my-4">
             <ul class="list-group mb-5 m-3">
-                <li class="list-group-item  d-flex justify-content-between m-1 pointer" v-for="(item,index) in toSeeNew"
+                <li class="list-group-item  d-flex justify-content-between m-1 pointer" v-for="(item,index) in toSee"
                     :key="item.id" @click="ToggleToSee(item.id)">
                     <span :class="{'text-dec ' : item.done}">{{item.city}}</span>
                     <div class="d-flex justify-content-center align-items-center ">
@@ -46,7 +46,7 @@
             <!-- Form for add elements -->
             <div class="my-3 p-3">
                 <label for="add" class="form-label fs-3">Aggiungi Elemento</label>
-                <input type="text" class="form-control  " id="add" v-model="nCity" @keyup.enter="addItem">
+                <input type="text" class="form-control  " id="add" v-model="newObj.city" @keyup.enter="addItem">
                 <button class="btn btn-secondary  my-2 " @click="addItem">Aggiungi</button>
             </div>
         </main>

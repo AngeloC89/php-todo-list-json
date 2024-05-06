@@ -1,0 +1,35 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-image: url(../img/oceano\ mare.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+i {
+    font-size: 1.5rem;
+    color: red;
+}
+
+.text-dec {
+  
+    text-decoration: line-through;
+    text-decoration-thickness: 3px;
+    text-decoration-color: red;
+}
+#app{
+    margin-top: 50px;
+    border: 2px solid #000;
+    border-radius: 30px;
+    background-color: rgba(128, 128, 128, 0.469);
+}

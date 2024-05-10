@@ -23,25 +23,22 @@
 
     <div id="app" class="container ">
         <header>
+            <button @click="getData()">carica</button>
             <div class="text-center m-3 d-flex flex-column  justify-content-center align-items-center ">
                 <h1>Posti Da Vedere</h1>
-                <select class="form-select w-25" aria-label="Default select example" id="done" v-model="done"
-                    name="done">
-                    <option value="">Tutti</option>
-                    <option value="true">Visti</option>
-                    <option value="false">Da vedere</option>
-                </select>
             </div>
         </header>
         <!-- Main **** List -->
         <main class="my-4">
             <ul class="list-group mb-5 m-3">
+                <!-- List made with v-for -->
                 <li class="list-group-item  d-flex justify-content-between m-1 pointer" v-for="(item,index) in toSee"
-                    :key="item.id" @click="ToggleToSee(item.id)">
+                    :key="item.id" @click="" >
                     <span :class="{'text-dec ' : item.done}">{{item.city}}</span>
-                    <div class="d-flex justify-content-center align-items-center ">
-                        <i class="fa-regular fa-circle-xmark pointer" @click="deleteItem(item.id)"></i>
-                    </div>
+                    <button class="d-flex justify-content-center align-items-center " @click="deleteItem(index)" >
+                        <i class="fa-regular fa-circle-xmark pointer"></i>
+                    </button>
+                </li>
             </ul>
             <!-- Form for add elements -->
             <div class="my-3 p-3">

@@ -5,38 +5,38 @@
         "done": false
     },
     {
-        "id": 2,
-        "city": "Milano",
-        "done": false
-    },
-    {
-        "id": 3,
-        "city": "Lecco",
-        "done": false
-    },
-    {
-        "id": 4,
-        "city": "Padova",
-        "done": false
-    },
-    {
-        "id": 5,
-        "city": "Roma",
-        "done": false
-    },
-    {
-        "id": 6,
+        "id": 13,
         "city": "Londra",
         "done": false
     },
     {
-        "id": 7,
+        "id": 14,
         "city": "Miami",
         "done": false
     },
     {
-        "id": 8,
-        "city": "nuova citt\u00e0 pushata",
+        "id": 15,
+        "city": "Venezia",
+        "done": false
+    },
+    {
+        "id": 17,
+        "city": "Milano",
+        "done": false
+    },
+    {
+        "id": 18,
+        "city": "Roma",
+        "done": false
+    },
+    {
+        "id": 19,
+        "city": "Teneriffe",
+        "done": false
+    },
+    {
+        "id": 20,
+        "city": "New York",
         "done": false
     }
 ]

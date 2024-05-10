@@ -3,31 +3,38 @@
 $listjson = file_get_contents('js/data.json');
 
 
-$listjson = file_get_contents('js/data.json');
+$method = $_SERVER['REQUEST_METHOD'];
+$list = json_decode($listjson, true);
+if ($method === 'POST') {
+    if (isset($_POST['id'])) {
+        // Process POST data and update $listjson
 
-if (isset($_POST['id'])) {
-    // Process POST data and update $listjson
-    $list = json_decode($listjson, true);
-    $listjson = [
-        'id' => (int)$_POST['id'],
-        'city' => $_POST['city'],
-        'done' => (bool)$_POST['done']
-    ];
-    $list[] = $listjson;
+        $listjsonNew = [
+            'id' => (int) $_POST['id'],
+            'city' => $_POST['city'],
+            'done' => (bool) $_POST['done']
+        ];
+        $list[] = $listjsonNew;
 
-    // **Update JSON file before sending response**
-    $listjson = json_encode($list, JSON_PRETTY_PRINT);
-    file_put_contents('js/data.json', $listjson);
+
+    }
+} elseif ($method === 'DELETE') {
+    $obj = json_decode(file_get_contents('php://input'), true);
+    $index = $obj['id'];
+    array_splice($list, $index, 1);
 }
 
 
 
 
 
-
+$listjson = json_encode($list, JSON_PRETTY_PRINT);
+file_put_contents('js/data.json', $listjson);
 
 
 header('Content-Type: application/json');
 
 echo $listjson;
+
+
 

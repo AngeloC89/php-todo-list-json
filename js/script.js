@@ -62,18 +62,18 @@ createApp({
           });
       }
     },
-    // ToggleToSee(id) {
-    //   const item = this.toSee.find((el) => el.id === id);
-    //   if (item) {
-    //      item.done = !item.done;
-    //   }
+    ToggleToSee(index) {
+      
+    
+         this.toSee[index].done = !this.toSee[index].done;
+         const data = this.toSee[index];
+         data.idd = index;
 
-    //   axios.put(this.apiUrl, { id: item.id, done: item.done }).then((res) => {
-    //     console.log(res.data);
-    //     this.toSee = res.data;
-    //   });
-    //   console.log(item);
-    // },
+      axios.put(this.apiUrl, data).then((res) => {
+        console.log(res.data);
+        this.toSee = res.data;
+      });
+    },
     deleteItem(index) {
       const data = {
         id: index,

@@ -2,7 +2,7 @@
     {
         "id": 1,
         "city": "Agrigento",
-        "done": false
+        "done": true
     },
     {
         "id": 13,
@@ -20,11 +20,6 @@
         "done": false
     },
     {
-        "id": 17,
-        "city": "Milano",
-        "done": false
-    },
-    {
         "id": 18,
         "city": "Roma",
         "done": false
@@ -35,8 +30,18 @@
         "done": false
     },
     {
-        "id": 20,
+        "id": 24,
+        "city": "Milano",
+        "done": false
+    },
+    {
+        "id": 25,
         "city": "New York",
         "done": false
+    },
+    {
+        "id": 26,
+        "city": "Parchieggio perfieeeetto",
+        "done": true
     }
 ]

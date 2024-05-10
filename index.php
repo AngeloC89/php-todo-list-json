@@ -33,8 +33,8 @@
             <ul class="list-group mb-5 m-3">
                 <!-- List made with v-for -->
                 <li class="list-group-item  d-flex justify-content-between m-1 pointer" v-for="(item,index) in toSee"
-                    :key="item.id" @click="" >
-                    <span :class="{'text-dec ' : item.done}">{{item.city}}</span>
+                    :key="item.id"  >
+                    <span :class="{'text-dec ' : item.done}" @click="ToggleToSee(index)">{{item.city}} </span>
                     <button class="d-flex justify-content-center align-items-center " @click="deleteItem(index)" >
                         <i class="fa-regular fa-circle-xmark pointer"></i>
                     </button>

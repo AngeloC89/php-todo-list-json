@@ -22,6 +22,10 @@ if ($method === 'POST') {
     $obj = json_decode(file_get_contents('php://input'), true);
     $index = $obj['id'];
     array_splice($list, $index, 1);
+} elseif ($method === 'PUT') {
+    $obj = json_decode(file_get_contents('php://input'), true);
+    $index = $obj['idd'];
+    $list[$index]['done'] = $obj['done'];
 }
 
 
